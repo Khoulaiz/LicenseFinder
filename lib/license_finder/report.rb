@@ -13,7 +13,8 @@ module LicenseFinder
     attr_reader :dependencies, :project_name
 
     def sorted_dependencies
-      dependencies.sort_by(&:name)
+        sorted = dependencies.select{|dependency| dependency.name != nil }
+        sorted.sort_by(&:name)
     end
   end
 end
